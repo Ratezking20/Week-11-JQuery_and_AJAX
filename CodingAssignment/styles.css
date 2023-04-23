@@ -1,0 +1,79 @@
+*,*::before,*::after {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+#nav-bar{
+    width: 100vw;
+}
+
+
+:root {
+    --hue: 220;
+    --bkg: var(--hue) 40% 30%;
+    --text: var(--hue) 80% 20%;
+    --accent: var(--hue) 60% 80%;
+}
+
+head {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', "Calibri", 'Trebuchet MS', sans-serif;
+    gap: 2rem;
+    background-color: hsl(var(--bkg) / 0.4);
+    color: hsl(var(--text));
+    display: grid;
+    min-height: 100vh;
+    place-items: center;
+    place-content: center;
+}
+
+#game-area {
+display: grid;
+grid-template-columns: repeat(3,1fr); 
+gap: 0.12rem;
+margin: 0;
+padding: 0;
+width: 600px;
+max-width: 90vw;
+aspect-ratio: 1/1;
+}
+
+.tile {
+    border: 2px solid hsl(var(--text));
+    background-color: white;
+    line-height: 1rem;
+    border-radius: .4rem;
+    cursor: pointer;
+    color: hsl(var(--hue) 60% 50%);
+    place-content: center;
+    place-items: center;
+    font-weight: bold;
+    font-size: clamp(2rem, calc(9vw + 1rem), 10rem);
+    aspect-ratio: 1/1;
+    display: grid;
+    }
+
+.tile:focus {
+    border-color: hsl(var(--accent));
+    outline: 10px solid hsl(var(--accent));
+}
+
+.tile[data-value="X"]::before {
+    content: "X";
+    
+} 
+
+.tile[data-value="O"]::before {
+    content: "O";
+    
+}
+
+.tile:hover {
+    content: attr(data-hover);
+    opacity: .7;
+} 
